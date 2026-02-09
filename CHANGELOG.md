@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.4] - 2026-02-09
+
+### Added
+
+#### New React Hooks
+- **Network & Connectivity**:
+  - `useOnline` - Detect online/offline network status with callbacks
+  - `useWebSocket` - WebSocket connection management with auto-reconnect
+- **User Activity**:
+  - `useIdle` - Detect user inactivity with configurable timeout
+  - `usePageVisibility` - Detect when page/tab is visible or hidden
+- **Gestures**:
+  - `useLongPress` - Detect long press gestures on elements
+
 ## [1.0.0] - 2026-01-19
 
 ### Added

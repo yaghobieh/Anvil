@@ -105,11 +105,11 @@ export function pick<T extends object, K extends keyof T>(obj: T, keys: K[]): Pi
  * @returns New object without omitted properties
  */
 export function omit<T extends object, K extends keyof T>(obj: T, keys: K[]): Omit<T, K> {
-  const keySet = new Set(keys as (keyof T)[]);
-  const result = {} as Record<keyof T, T[keyof T]>;
-  for (const key of Object.keys(obj) as (keyof T)[]) {
-    if (!keySet.has(key)) {
-      result[key] = obj[key];
+  const keySet = new Set<K>(keys);
+  const result: Record<string, unknown> = {};
+  for (const key of Object.keys(obj)) {
+    if (!keySet.has(key as K)) {
+      result[key] = (obj as Record<string, unknown>)[key];
     }
   }
   return result as Omit<T, K>;

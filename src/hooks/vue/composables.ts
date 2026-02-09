@@ -220,8 +220,8 @@ export function useToggle(initialValue: boolean = false): {
  * @param handler - Handler to call on outside click
  * @returns Ref to attach to element
  */
-export function useClickOutside<T extends HTMLElement>(handler: () => void): Ref<T | null> {
-  const elementRef = ref<T | null>(null);
+export function useClickOutside<T extends HTMLElement = HTMLElement>(handler: () => void): Ref<T | null> {
+  const elementRef = ref<T | null>(null) as Ref<T | null>;
 
   const listener = (event: Event): void => {
     if (!elementRef.value || elementRef.value.contains(event.target as Node)) {

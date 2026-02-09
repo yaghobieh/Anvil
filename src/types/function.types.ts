@@ -10,47 +10,47 @@ export type ErrorCallback = (error: Error) => void;
 
 export type SuccessCallback<T = void> = (result: T) => void;
 
-export type Parameters<T extends (...args: never[]) => unknown> = T extends (
+export type FnParameters<T extends (...args: never[]) => unknown> = T extends (
   ...args: infer P
 ) => unknown
   ? P
   : never;
 
-export type ReturnType<T extends (...args: never[]) => unknown> = T extends (
+export type FnReturnType<T extends (...args: never[]) => unknown> = T extends (
   ...args: never[]
 ) => infer R
   ? R
   : never;
 
-export type AwaitedReturnType<T extends (...args: never[]) => unknown> = Awaited<ReturnType<T>>;
+export type AwaitedFnReturnType<T extends (...args: never[]) => unknown> = Awaited<FnReturnType<T>>;
 
-export type Curry<F extends (...args: never[]) => unknown> = Parameters<F> extends [
+export type Curry<F extends (...args: never[]) => unknown> = FnParameters<F> extends [
   infer First,
   ...infer Rest,
 ]
   ? (arg: First) => Rest extends []
-      ? ReturnType<F>
-      : Curry<(...args: Rest) => ReturnType<F>>
-  : ReturnType<F>;
+      ? FnReturnType<F>
+      : Curry<(...args: Rest) => FnReturnType<F>>
+  : FnReturnType<F>;
 
-export type Partial<F extends (...args: never[]) => unknown> = (
-  ...args: Partial<Parameters<F>>
-) => ReturnType<F>;
+export type PartialApplication<F extends (...args: never[]) => unknown> = (
+  ...args: unknown[]
+) => FnReturnType<F>;
 
 export type Debounced<T extends (...args: never[]) => unknown> = {
-  (...args: Parameters<T>): void;
+  (...args: FnParameters<T>): void;
   cancel: () => void;
   flush: () => void;
 };
 
 export type Throttled<T extends (...args: never[]) => unknown> = {
-  (...args: Parameters<T>): void;
+  (...args: FnParameters<T>): void;
   cancel: () => void;
 };
 
 export type Memoized<T extends (...args: never[]) => unknown> = {
-  (...args: Parameters<T>): ReturnType<T>;
-  cache: Map<string, ReturnType<T>>;
+  (...args: FnParameters<T>): FnReturnType<T>;
+  cache: Map<string, FnReturnType<T>>;
   clear: () => void;
 };
 
@@ -60,8 +60,8 @@ export type Compose<T extends ((...args: never[]) => unknown)[]> = T extends [
   infer F extends (...args: never[]) => unknown,
   ...infer Rest extends ((...args: never[]) => unknown)[],
 ]
-  ? (...args: Parameters<F>) => Rest extends []
-      ? ReturnType<F>
+  ? (...args: FnParameters<F>) => Rest extends []
+      ? FnReturnType<F>
       : Compose<Rest>
   : never;
 

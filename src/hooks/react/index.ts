@@ -43,3 +43,20 @@ export {
   useDelayedRender,
 } from './useMounted';
 
+// Network & Connectivity
+export { useOnline } from './useOnline';
+export type { UseOnlineOptions, UseOnlineReturn } from './useOnline';
+
+export { useWebSocket } from './useWebSocket';
+export type { UseWebSocketOptions, UseWebSocketReturn, WebSocketStatus } from './useWebSocket';
+
+// User Activity
+export { useIdle } from './useIdle';
+export type { UseIdleOptions, UseIdleReturn } from './useIdle';
+
+export { usePageVisibility } from './usePageVisibility';
+export type { UsePageVisibilityOptions, UsePageVisibilityReturn } from './usePageVisibility';
+
+// Gestures
+export { useLongPress } from './useLongPress';
+export type { UseLongPressOptions, UseLongPressReturn } from './useLongPress';

@@ -210,12 +210,13 @@ export function filter<T>(arr: T[], predicate: ArrayPredicate<T>): T[] {
 export function sort<T>(arr: T[], comparator?: Comparator<T> | SortConfig<T>[]): T[] {
   const copy = [...arr];
   if (!comparator) return copy.sort();
-  if (isFunction(comparator)) return copy.sort(comparator);
+  if (isFunction(comparator)) return copy.sort(comparator as Comparator<T>);
+  const configs = comparator as SortConfig<T>[];
   return copy.sort((a, b) => {
-    for (const config of comparator) {
+    for (const config of configs) {
       const { key, order = 'asc' } = config;
-      const aVal = a[key];
-      const bVal = b[key];
+      const aVal = (a as Record<string, unknown>)[key as string] as string | number;
+      const bVal = (b as Record<string, unknown>)[key as string] as string | number;
       if (aVal < bVal) return order === 'asc' ? -1 : 1;
       if (aVal > bVal) return order === 'asc' ? 1 : -1;
     }
@@ -386,9 +387,14 @@ export function partition<T>(arr: T[], predicate: ArrayPredicate<T>): [T[], T[]]
  */
 export function countBy<T>(arr: T[], key?: keyof T | ((item: T) => string | number)): Record<string, number> {
   return arr.reduce((acc, item) => {
-    const k = key
-      ? isFunction(key) ? String(key(item)) : String(item[key])
-      : String(item);
+    let k: string;
+    if (!key) {
+      k = String(item);
+    } else if (isFunction(key)) {
+      k = String((key as (item: T) => string | number)(item));
+    } else {
+      k = String(item[key as keyof T]);
+    }
     acc[k] = (acc[k] || 0) + 1;
     return acc;
   }, {} as Record<string, number>);
@@ -497,7 +503,7 @@ export function rotate<T>(arr: T[], n: number): T[] {
  * @returns Filled array
  */
 export function fill<T>(length: number, value: T | ((index: number) => T)): T[] {
-  return Array.from({ length }, (_, i) => (isFunction(value) ? value(i) : value));
+  return Array.from({ length }, (_, i) => (isFunction(value) ? (value as (index: number) => T)(i) : value as T));
 }
 
 /**

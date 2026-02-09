@@ -35,7 +35,7 @@ export function debounce<T extends (...args: never[]) => unknown>(
     }
   };
 
-  const debounced = ((...args: Parameters<T>): void => {
+  const debouncedFn = (...args: Parameters<T>): void => {
     lastArgs = args;
 
     if (leading && !isLeadingInvoked) {
@@ -53,8 +53,9 @@ export function debounce<T extends (...args: never[]) => unknown>(
       }
       cancel();
     }, delay);
-  }) as Debounced<T>;
+  };
 
+  const debounced = debouncedFn as unknown as Debounced<T>;
   debounced.cancel = cancel;
   debounced.flush = flush;
 
@@ -86,7 +87,7 @@ export function throttle<T extends (...args: never[]) => unknown>(
     lastArgs = null;
   };
 
-  const throttled = ((...args: Parameters<T>): void => {
+  const throttledFn = (...args: Parameters<T>): void => {
     const now = Date.now();
     const remaining = interval - (now - lastTime);
 
@@ -110,8 +111,9 @@ export function throttle<T extends (...args: never[]) => unknown>(
         }
       }, remaining);
     }
-  }) as Throttled<T>;
+  };
 
+  const throttled = throttledFn as unknown as Throttled<T>;
   throttled.cancel = cancel;
 
   return throttled;
@@ -127,21 +129,22 @@ export function memoize<T extends (...args: never[]) => unknown>(
   fn: T,
   keyResolver?: (...args: Parameters<T>) => string
 ): Memoized<T> {
-  const cache = new Map<string, ReturnType<T>>();
+  const cache = new Map<string, unknown>();
 
-  const memoized = ((...args: Parameters<T>): ReturnType<T> => {
+  const memoizedFn = (...args: Parameters<T>): ReturnType<T> => {
     const key = keyResolver ? keyResolver(...args) : JSON.stringify(args);
 
     if (cache.has(key)) {
-      return cache.get(key)!;
+      return cache.get(key) as ReturnType<T>;
     }
 
     const result = fn(...args) as ReturnType<T>;
     cache.set(key, result);
     return result;
-  }) as Memoized<T>;
+  };
 
-  memoized.cache = cache;
+  const memoized = memoizedFn as unknown as Memoized<T>;
+  (memoized as { cache: Map<string, unknown> }).cache = cache;
   memoized.clear = (): void => {
     cache.clear();
   };
