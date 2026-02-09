@@ -1,11 +1,11 @@
 {
   "name": "@forgedevstack/anvil",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A modern utility library with React hooks and Vue composables - the forge where code is shaped",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "homepage": "https://forgedevstack.dev/anvil",
+  "homepage": "https://forgedevstack.com",
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
