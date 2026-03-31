@@ -646,3 +646,21 @@ export function commonSuffix(strings: string[]): string {
   return reverse(commonPrefix(strings.map(reverse)));
 }
 
+/**
+ * Converts entire string to uppercase
+ * @param str - The string
+ * @returns Uppercase string
+ */
+export function uppercase(str: string): string {
+  return str.toUpperCase();
+}
+
+/**
+ * Converts entire string to lowercase
+ * @param str - The string
+ * @returns Lowercase string
+ */
+export function lowercase(str: string): string {
+  return str.toLowerCase();
+}
+

@@ -13,6 +13,7 @@ export default defineConfig({
       entry: {
         index: resolve(__dirname, 'src/index.ts'),
         'utils/index': resolve(__dirname, 'src/utils/index.ts'),
+        'date-master/index': resolve(__dirname, 'src/utils/date.ts'),
         'hooks/index': resolve(__dirname, 'src/hooks/index.ts'),
         'hooks/react/index': resolve(__dirname, 'src/hooks/react/index.ts'),
         'hooks/vue/index': resolve(__dirname, 'src/hooks/vue/index.ts'),

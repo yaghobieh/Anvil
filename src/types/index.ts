@@ -105,3 +105,38 @@ export type {
   UseMediaQueryReturn,
 } from './hooks.types';
 
+export type {
+  DebugLevel,
+  DebugLevelValue,
+  ScopeConfig,
+  ScopeConfigOverride,
+  WatchEntry,
+  TimerEntry,
+  Snapshot,
+  DebugHandler,
+  UseScopeOptions,
+  UseScopeReturn,
+} from './debug.types';
+
+export type {
+  DocumentKind,
+  OfficeDocFamily,
+  ParsedDataUrl,
+  GetAcceptStringOptions,
+} from './file.types';
+
+export type {
+  DateUnit,
+  DateUnitShort,
+  DateUnitInput,
+  DateInput,
+  RelativeTimeOptions,
+  LocaleOptions,
+  CalendarOptions,
+  DurationObject,
+  DurationInput,
+  DateInterval,
+  TimeZoneFormatOptions,
+  TimezoneInfo,
+  DateObject,
+} from './date.types';

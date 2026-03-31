@@ -1,11 +1,10 @@
 {
   "name": "@forgedevstack/anvil",
-  "version": "1.0.1",
+  "version": "1.0.6",
   "description": "A modern utility library with React hooks and Vue composables - the forge where code is shaped",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "homepage": "https://forgedevstack.com",
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
@@ -16,6 +15,11 @@
       "import": "./dist/utils/index.mjs",
       "require": "./dist/utils/index.js",
       "types": "./dist/utils/index.d.ts"
+    },
+    "./date-master": {
+      "import": "./dist/date-master/index.mjs",
+      "require": "./dist/date-master/index.js",
+      "types": "./dist/date-master/index.d.ts"
     },
     "./hooks": {
       "import": "./dist/hooks/index.mjs",
@@ -44,10 +48,9 @@
     "lint": "eslint src --ext .ts,.tsx",
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "npm run build",
-    "release": "npm run build && npm publish --access public",
-    "release:patch": "npm version patch && npm run release",
-    "release:minor": "npm version minor && npm run release",
-    "release:major": "npm version major && npm run release"
+    "portal": "cd portal && npm run dev",
+    "portal:install": "cd portal && npm install",
+    "portal:build": "cd portal && npm run build"
   },
   "keywords": [
     "utilities",
@@ -59,7 +62,11 @@
     "forgestack",
     "deepclone",
     "debounce",
-    "throttle"
+    "throttle",
+    "file",
+    "mime",
+    "pdf",
+    "markdown"
   ],
   "author": "John Yaghobieh",
   "license": "MIT",

@@ -2,6 +2,90 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.6] - 2026-03-12
+
+### Added
+
+#### File & document helpers (`src/utils/file.ts`)
+
+- **`getFileExtension(pathOrName)`** — Last segment extension, lowercased, without the dot.
+- **`formatFileSize(bytes, options?)`** — Human-readable size (decimal 1000 or binary 1024 via `binary`).
+- **`EXTENSION_TO_MIME`** — Common extension → MIME map (PDF, Markdown/MDX, Office, text, JSON, HTML, etc.).
+- **`getMimeTypeFromExtension(ext)`** — Lookup MIME from extension.
+- **`isPdfFile(pathOrName)`** — `.pdf`.
+- **`isMarkdownFile(pathOrName)`** — `.md`, `.markdown`, `.mdown`, `.mkd`, `.mdx`.
+- **`isOfficeDocumentFile(pathOrName)`** — Word, spreadsheet, presentation extensions (doc/docx, xls/xlsx, ppt/pptx, odt/ods/odp, rtf, csv).
+- **`isWordDocumentFile`**, **`isSpreadsheetFile`**, **`isPresentationFile`** — Finer office buckets.
+- **`isPlainTextFile(pathOrName)`** — `.txt`, `.log`, `.ini`, `.cfg`, `.env`.
+- **`getDocumentKind(pathOrName)`** — `'pdf' | 'markdown' | 'office' | 'text' | 'unknown'`.
+- **`getOfficeDocumentFamily(pathOrName)`** — `'word' | 'spreadsheet' | 'presentation' | 'other'`.
+- **`sanitizeFilename(name, maxLength?)`** — Strip path unsafe characters for safe display/download names.
+- **`readFileAsText(file)`** — Browser `FileReader` → UTF-8 `Promise<string>`.
+- **`readFileAsArrayBuffer(file)`** — `FileReader` → `Promise<ArrayBuffer>`.
+- **`readFileAsDataURL(file)`** — `FileReader.readAsDataURL` → `Promise<string>`.
+- **`downloadBlob(blob, filename)`** — Trigger download via temporary object URL (no-op without `document`).
+- **`downloadText(text, filename, mimeType?)`** — UTF-8 text download (default `text/plain;charset=utf-8`).
+- **`getAcceptString(options?)`** — Build HTML `accept` from `pdf` / `markdown` / `office` / `text` flags and optional `extra` MIME or `.ext` entries.
+- **`parseDataUrl(dataUrl)`** — Parse `data:` URLs into `{ mime, isBase64, data }` or `null`.
+
+#### React
+
+- **`useObjectUrl(blob)`** — `URL.createObjectURL` with revoke on change/unmount; returns `string | null`.
+
+#### Types
+
+- **`DocumentKind`**, **`OfficeDocFamily`** — Exported from `src/types/file.types.ts`.
+- **`ParsedDataUrl`**, **`GetAcceptStringOptions`**
+- **`UseObjectUrlReturn`** (hook)
+
+#### Documentation portal (`portal/`)
+
+- Vite and React documentation site using Bear for layout, theming, and components.
+- Global search (Command K or Control K), responsive navigation, and a version page tied to `package.json`.
+- Topic pages for utilities (array, object, string, function, file, cn, Scope debugger) and React/Vue hooks.
+- Interactive sandbox that runs real imports from `@forgedevstack/anvil`.
+- Changelog and package README rendered from the repository root for accuracy.
+
+## [1.0.5] - 2026-02-15
+
+### Added
+
+#### Scope — Enhanced Debugger
+- **`scope`** global singleton — drop-in replacement for `debugger;` with superpowers
+- **`createScope(label, config?)`** — create scoped instances with custom labels and colors
+- **`scope.pause(context?)`** — like `debugger;` but logs context before pausing
+- **`scope.pauseIf(condition, context?)`** — conditional breakpoint, only pauses when condition is true
+- **`scope.inspect(value, label?)`** — logs a value richly then pauses execution
+- **`scope.watch(label, value)`** — track a value across calls, logs diffs when it changes
+- **`scope.watchBreak(label, value)`** — watch + pause when value changes
+- **`scope.time(label)` / `scope.timeEnd(label)`** — high-resolution performance timers with colored output
+- **`scope.count(label?)`** — count how many times a code path is hit
+- **`scope.snapshot(label, data)`** — capture data snapshots for time-travel debugging
+- **`scope.assert(condition, message)`** — assertion that logs + pauses on failure
+- **`scope.group(label)` / `scope.groupEnd()`** — grouped console output
+- **`scope.table(data)`** — formatted table output
+- **Styled console output** — colored labels, timestamps, level badges (TRACE/DEBUG/INFO/WARN/ERROR)
+- **Log levels** — `scope.setLevel('warn')` to filter output
+- **Enable/Disable** — `scope.enable()` / `scope.disable()` for production
+- **Custom handler** — `scope.setHandler(fn)` to replace console with custom logging
+
+#### useScope React Hook
+- **`useScope(name)`** — scoped debugger tied to React component lifecycle
+- Automatic **render count** tracking
+- Automatic **mount/unmount** lifecycle logging
+- All Scope methods available as stable callbacks
+- Configurable via options: `trackRenders`, `trackLifecycle`, `config`
+
+#### Types
+- `DebugLevel`, `DebugLevelValue`, `ScopeConfig`, `ScopeConfigOverride`
+- `WatchEntry`, `TimerEntry`, `Snapshot`, `DebugHandler`
+- `UseScopeOptions`, `UseScopeReturn`
+
+#### Constants
+- `DEBUG_LEVELS`, `DEBUG_LEVEL_STYLES`, `DEBUG_LEVEL_BADGES`
+- `DEFAULT_SCOPE_CONFIG`, `SCOPE_LOGO`
+- `MAX_WATCH_HISTORY`, `MAX_SNAPSHOTS`, `MAX_TIMERS`
+
 ## [1.0.4] - 2026-02-09
 
 ### Added

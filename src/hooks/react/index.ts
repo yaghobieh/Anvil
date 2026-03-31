@@ -60,3 +60,11 @@ export type { UsePageVisibilityOptions, UsePageVisibilityReturn } from './usePag
 // Gestures
 export { useLongPress } from './useLongPress';
 export type { UseLongPressOptions, UseLongPressReturn } from './useLongPress';
+
+// Debugging
+export { useScope } from './useScope';
+export type { UseScopeOptions, UseScopeReturn } from './useScope';
+
+// Files / blobs
+export { useObjectUrl } from './useObjectUrl';
+export type { UseObjectUrlReturn } from './useObjectUrl';

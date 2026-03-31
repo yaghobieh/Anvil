@@ -1,0 +1,1 @@
+export { DocSidebar } from './DocSidebar';

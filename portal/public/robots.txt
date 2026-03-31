@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# After deploy: set absolute Sitemap URL to your origin + /sitemap.xml
+Sitemap: /sitemap.xml

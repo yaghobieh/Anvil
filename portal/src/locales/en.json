@@ -1,0 +1,134 @@
+{
+  "meta": {
+    "siteName": "Anvil",
+    "defaultTitle": "Anvil — TypeScript utilities, hooks & Scope debugger | ForgeStack",
+    "defaultDescription": "Anvil: tree-shakeable JavaScript utilities, React hooks, Vue composables, file helpers, cn(), and Scope debugger. Part of @forgedevstack. Docs, API reference, and sandbox.",
+    "keywords": "anvil, forgedevstack, typescript, utilities, react hooks, vue composables, lodash alternative, scope debugger, bear ui"
+  },
+  "common": {
+    "loading": "Loading",
+    "install": "Install",
+    "example": "Example",
+    "openSearch": "Open search",
+    "lightMode": "Switch to light mode",
+    "darkMode": "Switch to dark mode"
+  },
+  "nav": {
+    "brand": "Anvil",
+    "docs": "Docs",
+    "utilities": "Utilities",
+    "sandbox": "Sandbox",
+    "changelog": "Changelog",
+    "version": "Version",
+    "npm": "npm",
+    "logoAlt": "Anvil logo"
+  },
+  "search": {
+    "placeholder": "Search pages and API symbols",
+    "noResults": "No results"
+  },
+  "home": {
+    "forgeStackBadge": "Forge stack",
+    "heroHeadline": "Modular utilities for modern JavaScript",
+    "heroSubhead": "Tree-shakeable helpers for arrays, objects, strings, functions, files, class names, and debugging. React hooks and Vue composables included. TypeScript first, zero runtime dependencies.",
+    "ctaDocs": "Read the docs",
+    "ctaSandbox": "Open sandbox",
+    "ctaNpm": "View on npm",
+    "installCmd": "npm install @forgedevstack/anvil",
+    "codeSample": "import { unique, groupBy, debounce, formatFileSize } from '@forgedevstack/anvil';\n\nconst ids = unique([1, 2, 2, 3]);\nconst byRole = groupBy(users, 'role');\nconst onSearch = debounce((q: string) => fetchResults(q), 300);\nconst label = formatFileSize(1536000);",
+    "forgeSectionTitle": "Forge ecosystem, Bear UI, and this site",
+    "forgeSectionIntro": "Anvil is part of the Forge stack—a family of TypeScript-first packages published under @forgedevstack. Together they cover utilities, UI, and documentation patterns so product teams share the same building blocks.",
+    "forgeEaseTitle": "Easy to adopt, built to grow",
+    "forgeEaseBody": "Pick one package or several. Anvil works without Bear; Bear works without Anvil. We are expanding the ecosystem with shared tokens, docs, and patterns so every new library feels familiar.",
+    "bearDeepTitle": "Bear in depth",
+    "bearDeepBody": "Bear is the ForgeStack React UI kit: layout primitives, typography, forms, feedback, data display, overlays, and icons—styled with Tailwind, accessible defaults, and dark mode via BearProvider. Install from npm and theme with customVariants (this site uses the anvil palette).",
+    "comparisonTitle": "At a glance",
+    "comparisonColTopic": "Topic",
+    "comparisonColAnvil": "Anvil / Forge",
+    "comparisonRows": [
+      { "topic": "Install surface", "anvil": "npm i @forgedevstack/anvil — tree-shake named exports" },
+      { "topic": "UI (optional)", "anvil": "npm i @forgedevstack/bear — same design language as this portal" },
+      { "topic": "Debugging", "anvil": "Scope: levels, timers, watches, pauseIf — real devtools workflow" },
+      { "topic": "Frameworks", "anvil": "React hooks + Vue composables; core utils are framework-agnostic" }
+    ],
+    "builtWithBearHeadline": "Built with Bear",
+    "builtWithBearBody": "The portal you are reading uses Bear for layout, buttons, cards, typography, and syntax-highlighted code blocks. That keeps the docs experience aligned with the same design system you can ship in production.",
+    "builtWithBearCta": "Bear on npm",
+    "ecosystemCards": [
+      {
+        "id": "forge-stack",
+        "title": "Forge stack",
+        "body": "The umbrella for Forge libraries and conventions. It is not a single framework: you adopt packages (like Anvil) as needed. The @forgedevstack scope groups them so versioning and docs can stay aligned across projects."
+      },
+      {
+        "id": "anvil",
+        "title": "Anvil (this package)",
+        "body": "What you install with npm: tree-shakeable utilities for arrays, objects, strings, functions, files, class names, debugging, plus React hooks and Vue composables. Zero runtime deps for the core helpers; framework pieces are optional."
+      },
+      {
+        "id": "bear",
+        "title": "Bear",
+        "body": "ForgeStack React component library (@forgedevstack/bear). Layout, typography, buttons, cards, inputs, code blocks, and icons. Use it in your apps; this documentation portal is implemented with it."
+      },
+      {
+        "id": "portal",
+        "title": "This documentation site",
+        "body": "Guides, full API reference with copyable examples, interactive and external sandboxes, changelog, README, and version info. It showcases Anvil DX while dogfooding Bear for a consistent look and feel."
+      }
+    ],
+    "features": [
+      {
+        "id": "util",
+        "title": "Rich utility surface",
+        "body": "Collection helpers inspired by mature libraries: map and filter patterns, deep clone, type guards, string case transforms, and composable function tools."
+      },
+      {
+        "id": "react",
+        "title": "React hooks",
+        "body": "Responsive breakpoints, forms, debounce and throttle, async data, WebSocket, idle detection, and more. Built for real apps, not only demos."
+      },
+      {
+        "id": "debug",
+        "title": "Scope debugger",
+        "body": "Structured console logging, timers, and conditional pauses that replace raw debugger statements with configurable behavior."
+      },
+      {
+        "id": "file",
+        "title": "File and document helpers",
+        "body": "Extension and MIME checks for PDF, Markdown, Office, text, safe filenames, downloads, and browser FileReader helpers."
+      }
+    ]
+  },
+  "sandbox": {
+    "title": "Interactive sandbox",
+    "description": "Run real @forgedevstack/anvil APIs in the browser below, or open a full Vite + React environment on StackBlitz and add the package.",
+    "externalTitle": "Full online playground",
+    "externalBody": "Use StackBlitz for a real bundler, file tree, and console. After the project loads, run: npm install @forgedevstack/anvil",
+    "stackblitzViteReact": "Open Vite + React (StackBlitz)",
+    "tabArray": "Array",
+    "tabString": "String",
+    "tabFile": "File size",
+    "tabDebounce": "Debounce value",
+    "tabScope": "Scope debugger",
+    "tabExternal": "Online IDE",
+    "arrayPanelTitle": "unique and groupBy",
+    "arrayPanelHelp": "Parse a comma-separated list of numbers. unique returns deduped values. groupBy shows fixed sample rows grouped by department.",
+    "arrayLabel": "Numbers",
+    "stringPanelTitle": "camelCase",
+    "stringLabel": "Text",
+    "filePanelTitle": "formatFileSize",
+    "fileLabel": "Bytes (non-negative number)",
+    "debouncePanelTitle": "useDebounceValue",
+    "debounceHelp": "Hook from Anvil delays the mirrored value by {{ms}} ms. Useful for previewing search or validation feedback.",
+    "debounceLabel": "Type quickly",
+    "scopePanelTitle": "Scope (real debugger API)",
+    "scopeHelp": "Calls the real scope singleton from @forgedevstack/anvil. Open your browser devtools console to see logs, timers, and groups.",
+    "scopeEnable": "Enable scope",
+    "scopeDisable": "Disable scope",
+    "scopeLog": "Log demo",
+    "scopeTime": "Time demo",
+    "scopeGroup": "Group demo",
+    "scopePauseIf": "pauseIf (false)",
+    "invalidSize": "Invalid"
+  }
+}
