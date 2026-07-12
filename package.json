@@ -7,34 +7,34 @@
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.js"
     },
     "./utils": {
+      "types": "./dist/utils/index.d.ts",
       "import": "./dist/utils/index.mjs",
-      "require": "./dist/utils/index.js",
-      "types": "./dist/utils/index.d.ts"
+      "require": "./dist/utils/index.js"
     },
     "./date-master": {
+      "types": "./dist/date-master/index.d.ts",
       "import": "./dist/date-master/index.mjs",
-      "require": "./dist/date-master/index.js",
-      "types": "./dist/date-master/index.d.ts"
+      "require": "./dist/date-master/index.js"
     },
     "./hooks": {
+      "types": "./dist/hooks/index.d.ts",
       "import": "./dist/hooks/index.mjs",
-      "require": "./dist/hooks/index.js",
-      "types": "./dist/hooks/index.d.ts"
+      "require": "./dist/hooks/index.js"
     },
     "./hooks/react": {
+      "types": "./dist/hooks/react/index.d.ts",
       "import": "./dist/hooks/react/index.mjs",
-      "require": "./dist/hooks/react/index.js",
-      "types": "./dist/hooks/react/index.d.ts"
+      "require": "./dist/hooks/react/index.js"
     },
     "./hooks/vue": {
+      "types": "./dist/hooks/vue/index.d.ts",
       "import": "./dist/hooks/vue/index.mjs",
-      "require": "./dist/hooks/vue/index.js",
-      "types": "./dist/hooks/vue/index.d.ts"
+      "require": "./dist/hooks/vue/index.js"
     }
   },
   "files": [
@@ -99,4 +99,3 @@
     "vue": "^3.4.0"
   }
 }
-
